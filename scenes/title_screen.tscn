@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://dih4vjwmsxui"]
+
+[node name="titleScreen" type="Node2D" unique_id=1493678860]
+
+[node name="background" type="TextureRect" parent="." unique_id=945473538]
+offset_right = 40.0
+offset_bottom = 40.0
+scale = Vector2(28.651146, 16.081625)
+
+[node name="RichTextLabel" type="RichTextLabel" parent="." unique_id=2054496965]
+custom_minimum_size = Vector2(600, 0)
+offset_left = 221.0
+offset_top = 16.0
+offset_right = 1371.0
+offset_bottom = 164.0
+theme_override_constants/outline_size = 40
+theme_override_font_sizes/normal_font_size = 108
+text = "Game Title"
+fit_content = true
+autowrap_mode = 1
