@@ -1,20 +1,50 @@
 [gd_scene format=3 uid="uid://dih4vjwmsxui"]
 
+[ext_resource type="Script" uid="uid://b4gi4qrsn7fff" path="res://scripts/title_screen.gd" id="1_fgkus"]
+
 [node name="titleScreen" type="Node2D" unique_id=1493678860]
+script = ExtResource("1_fgkus")
 
 [node name="background" type="TextureRect" parent="." unique_id=945473538]
 offset_right = 40.0
 offset_bottom = 40.0
 scale = Vector2(28.651146, 16.081625)
 
-[node name="RichTextLabel" type="RichTextLabel" parent="." unique_id=2054496965]
+[node name="title" type="RichTextLabel" parent="." unique_id=2054496965]
 custom_minimum_size = Vector2(600, 0)
-offset_left = 221.0
-offset_top = 16.0
-offset_right = 1371.0
-offset_bottom = 164.0
+offset_left = 279.0
+offset_top = 30.0
+offset_right = 1429.0
+offset_bottom = 178.0
 theme_override_constants/outline_size = 40
 theme_override_font_sizes/normal_font_size = 108
 text = "Game Title"
 fit_content = true
 autowrap_mode = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1378974388]
+offset_left = 355.0
+offset_top = 179.0
+offset_right = 771.0
+offset_bottom = 290.0
+
+[node name="start" type="Button" parent="VBoxContainer" unique_id=1015038855]
+layout_mode = 2
+theme_override_constants/outline_size = 14
+theme_override_font_sizes/font_size = 26
+text = "Start Game"
+
+[node name="settings" type="Button" parent="VBoxContainer" unique_id=1918243855]
+layout_mode = 2
+theme_override_constants/outline_size = 14
+theme_override_font_sizes/font_size = 26
+text = "Settings"
+
+[node name="Quit" type="Button" parent="VBoxContainer" unique_id=388043012]
+layout_mode = 2
+theme_override_constants/outline_size = 14
+theme_override_font_sizes/font_size = 26
+text = "Quit"
+
+[connection signal="pressed" from="VBoxContainer/start" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="VBoxContainer/Quit" to="." method="_on_quit_pressed"]
