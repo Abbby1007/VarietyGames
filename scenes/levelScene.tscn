@@ -1,3 +1,76 @@
 [gd_scene format=3 uid="uid://d3nid8ht2vfsx"]
 
-[node name="Node2D" type="Node2D" unique_id=400499987]
+[ext_resource type="Texture2D" uid="uid://1ehopses7t08" path="res://icon.svg" id="1_0j3g6"]
+[ext_resource type="Script" uid="uid://c4oowdupa2oj2" path="res://scripts/timerScreen.gd" id="2_hmwnu"]
+
+[sub_resource type="GDScript" id="GDScript_hmwnu"]
+script/source = "extends RichTextLabel
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready() -> void:
+	pass # Replace with function body.
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta: float) -> void:
+	pass
+"
+
+[node name="levelScene" type="Node2D" unique_id=400499987]
+script = ExtResource("2_hmwnu")
+
+[node name="background" type="TextureRect" parent="." unique_id=811760588]
+offset_right = 40.0
+offset_bottom = 40.0
+scale = Vector2(28.739128, 16.132355)
+
+[node name="lifeContainer" type="HBoxContainer" parent="." unique_id=342201675]
+offset_left = 268.0
+offset_top = 9.0
+offset_right = 924.0
+offset_bottom = 137.0
+
+[node name="life" type="TextureRect" parent="lifeContainer" unique_id=2093821577]
+layout_mode = 2
+texture = ExtResource("1_0j3g6")
+
+[node name="life2" type="TextureRect" parent="lifeContainer" unique_id=1468177830]
+layout_mode = 2
+texture = ExtResource("1_0j3g6")
+
+[node name="life3" type="TextureRect" parent="lifeContainer" unique_id=396213198]
+layout_mode = 2
+texture = ExtResource("1_0j3g6")
+
+[node name="life4" type="TextureRect" parent="lifeContainer" unique_id=707028137]
+layout_mode = 2
+texture = ExtResource("1_0j3g6")
+
+[node name="life5" type="TextureRect" parent="lifeContainer" unique_id=1423719358]
+layout_mode = 2
+texture = ExtResource("1_0j3g6")
+
+[node name="level" type="RichTextLabel" parent="." unique_id=245635799]
+custom_minimum_size = Vector2(300, 0)
+offset_left = 458.0
+offset_top = 154.0
+offset_right = 758.0
+offset_bottom = 212.0
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/normal_font_size = 42
+text = "Level #"
+fit_content = true
+
+[node name="timer" type="RichTextLabel" parent="." unique_id=1936717539]
+custom_minimum_size = Vector2(200, 0)
+offset_left = 433.99994
+offset_top = 230.0
+offset_right = 633.99994
+offset_bottom = 288.0
+scale = Vector2(0.980865, 1.0064242)
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/normal_font_size = 42
+text = "0.0"
+fit_content = true
+script = SubResource("GDScript_hmwnu")
