@@ -1,0 +1,39 @@
+[gd_scene format=3 uid="uid://bkkgj7f0onro7"]
+
+[ext_resource type="Texture2D" uid="uid://1ehopses7t08" path="res://icon.svg" id="1_tk6fs"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3ru16"]
+size = Vector2(34.589203, 42.78195)
+
+[node name="minigame_1" type="Node2D" unique_id=151739548]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=160010597]
+position = Vector2(546, 609)
+scale = Vector2(5.4436135, 1)
+metadata/_edit_group_ = true
+
+[node name="ColorRect" type="ColorRect" parent="StaticBody2D" unique_id=256021418]
+offset_left = 112.59307
+offset_top = 40.0
+offset_right = 152.59308
+offset_bottom = 80.0
+rotation = -3.1382363
+scale = Vector2(5.3506136, 1)
+color = Color(0.8666667, 0.627451, 0.8666667, 1)
+metadata/_edit_use_anchors_ = true
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=2144108682]
+position = Vector2(5.720436, 19.5)
+scale = Vector2(6.17586, 0.9115982)
+shape = SubResource("RectangleShape2D_3ru16")
+metadata/_edit_group_ = true
+
+[node name="ScrollingBackground" type="Parallax2D" parent="." unique_id=1946198400]
+repeat_size = Vector2(1000, 0)
+autoscroll = Vector2(100, 0)
+
+[node name="background" type="TextureRect" parent="ScrollingBackground" unique_id=1647294858]
+offset_right = 1159.0
+offset_bottom = 642.0
+texture = ExtResource("1_tk6fs")
