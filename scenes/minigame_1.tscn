@@ -1,18 +1,65 @@
 [gd_scene format=3 uid="uid://bkkgj7f0onro7"]
 
 [ext_resource type="Texture2D" uid="uid://1ehopses7t08" path="res://icon.svg" id="1_tk6fs"]
+[ext_resource type="PackedScene" uid="uid://dvjlq4f2h0ff8" path="res://scenes/player.tscn" id="2_og05i"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3ru16"]
 size = Vector2(34.589203, 42.78195)
 
+[sub_resource type="Animation" id="Animation_og05i"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("coin:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(958.00006, 344.99997)]
+}
+
+[sub_resource type="Animation" id="Animation_lmjug"]
+resource_name = "floating"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("coin:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(960.00006, 352), Vector2(960, 347)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_v5ebm"]
+_data = {
+&"RESET": SubResource("Animation_og05i"),
+&"floating": SubResource("Animation_lmjug")
+}
+
 [node name="minigame_1" type="Node2D" unique_id=151739548]
 
-[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=160010597]
+[node name="ScrollingBackground" type="Parallax2D" parent="." unique_id=1946198400]
+repeat_size = Vector2(1000, 0)
+autoscroll = Vector2(100, 0)
+
+[node name="background" type="TextureRect" parent="ScrollingBackground" unique_id=1647294858]
+offset_right = 1159.0
+offset_bottom = 642.0
+texture = ExtResource("1_tk6fs")
+
+[node name="platform1" type="StaticBody2D" parent="." unique_id=160010597]
 position = Vector2(546, 609)
 scale = Vector2(5.4436135, 1)
 metadata/_edit_group_ = true
 
-[node name="ColorRect" type="ColorRect" parent="StaticBody2D" unique_id=256021418]
+[node name="ColorRect" type="ColorRect" parent="platform1" unique_id=256021418]
 offset_left = 112.59307
 offset_top = 40.0
 offset_right = 152.59308
@@ -23,17 +70,72 @@ color = Color(0.8666667, 0.627451, 0.8666667, 1)
 metadata/_edit_use_anchors_ = true
 metadata/_edit_group_ = true
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=2144108682]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="platform1" unique_id=2144108682]
 position = Vector2(5.720436, 19.5)
 scale = Vector2(6.17586, 0.9115982)
 shape = SubResource("RectangleShape2D_3ru16")
 metadata/_edit_group_ = true
 
-[node name="ScrollingBackground" type="Parallax2D" parent="." unique_id=1946198400]
-repeat_size = Vector2(1000, 0)
-autoscroll = Vector2(100, 0)
+[node name="platform2" type="StaticBody2D" parent="." unique_id=394598616]
+position = Vector2(585, 488)
+scale = Vector2(1.4436135, 1)
+metadata/_edit_group_ = true
 
-[node name="background" type="TextureRect" parent="ScrollingBackground" unique_id=1647294858]
-offset_right = 1159.0
-offset_bottom = 642.0
+[node name="ColorRect" type="ColorRect" parent="platform2" unique_id=781580961]
+offset_left = 112.59307
+offset_top = 40.0
+offset_right = 152.59308
+offset_bottom = 80.0
+rotation = -3.1382363
+scale = Vector2(5.3506136, 1)
+color = Color(0.8666667, 0.627451, 0.8666667, 1)
+metadata/_edit_use_anchors_ = true
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="platform2" unique_id=821999462]
+position = Vector2(5.720436, 19.5)
+scale = Vector2(6.17586, 0.9115982)
+shape = SubResource("RectangleShape2D_3ru16")
+metadata/_edit_group_ = true
+
+[node name="platform3" type="StaticBody2D" parent="." unique_id=1420280021]
+position = Vector2(991, 426)
+scale = Vector2(1.4436135, 1)
+metadata/_edit_group_ = true
+
+[node name="ColorRect" type="ColorRect" parent="platform3" unique_id=775478235]
+offset_left = 112.59307
+offset_top = 40.0
+offset_right = 152.59308
+offset_bottom = 80.0
+rotation = -3.1382363
+scale = Vector2(5.3506136, 1)
+color = Color(0.8666667, 0.627451, 0.8666667, 1)
+metadata/_edit_use_anchors_ = true
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="platform3" unique_id=1145418548]
+position = Vector2(5.720436, 19.5)
+scale = Vector2(6.17586, 0.9115982)
+shape = SubResource("RectangleShape2D_3ru16")
+metadata/_edit_group_ = true
+
+[node name="Player" parent="." unique_id=795459594 instance=ExtResource("2_og05i")]
+position = Vector2(79, 539)
+
+[node name="coin" type="Node2D" parent="." unique_id=739889366]
+
+[node name="coin" type="TextureRect" parent="coin" unique_id=707784575]
+offset_left = 958.00006
+offset_top = 344.99997
+offset_right = 1086.0
+offset_bottom = 473.00027
+scale = Vector2(0.6400024, 0.56)
 texture = ExtResource("1_tk6fs")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="coin" unique_id=909372302]
+libraries/ = SubResource("AnimationLibrary_v5ebm")
+
+[node name="Area2D" type="Area2D" parent="coin" unique_id=1414256126]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="coin/Area2D" unique_id=56975257]
